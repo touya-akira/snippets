@@ -1,4 +1,11 @@
 #!/usr/bin/python
+"""Simple irc to mysql interface
+to find, add and remove entries
+to the tor authentification db.
+
+v1.0
+author: Touya Akira
+"""
 
 import MySQLdb;
 
