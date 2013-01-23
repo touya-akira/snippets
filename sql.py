@@ -9,32 +9,11 @@ TUSER = ''
 TPASS = ''
 TDB = ''
 
-def commit(phenny, input):
-	if (input.sender != CCHANNEL): return
-	else:
-		db = MySQLdb.connect(host=THOST, user=TUSER, passwd=TPASS, db=TDB)
-		cursor = db.cursor
-		db.commit()
-		phenny.say("All changes commited.")
-commit.commands = ['commit']
-
-def rollback(phenny, input):
-	if (input.sender != CCHANNEL): return
-	else:
-		db = MySQLdb.connect(host=THOST, user=TUSER, passwd=TPASS, db=TDB)
-		cursor = db.cursor
-		db.rollback()
-		phenny.say("Rollback performed. Previous changes reset.")
-rollback.commands = ['commit']
-
-
 def thelp(phenny, input):
 	phenny.say("Usage:")
 	phenny.say(".add <ident> <hash> - add a user to tor auth.")
 	phenny.say(".del <hash> - delete user with matching hash from tor auth.")
 	phenny.say(".find <ident> - find and display users matching ident.")
-	phenny.say(".commit - commit all db changes.")
-	phenny.say(".rollback - rollback changes since last commit")
 thelp.commands = ['help']
 
 def searchi(phenny, input):
